@@ -1,42 +1,7 @@
-## define iterations ##--------------------------------------------------------------------------------
-def ships(num):
-    ways = []
-
-    if num==1:
-        ways=[[1]]
-        return ways
-    
-    max_twos = num//2 #floor twos
-
-    for i in range(1+max_twos):
-        way=[]
-        if num%2==1:
-            way.append(1)
-        for two in range(i): # add max number of twos
-            way.append(2)
-        for one in range(num-sum(way)):
-            way.append(1)
-        ways.append(way)
-    return ways
-
-def len_ways(ways):
-    len_ways=[]
-    for i in ways:
-        len_ways.append(len(i))
-    return len_ways
-
-def print_iteration(i):
-    ans = ships(i)
-    print(f"{i}:[{len(ans)}]")
-    for j in ans:
-        print(f"-->( {len(j)} )={j}")
-
-def nothing():
-    i=0
-    i+1
-
-
-## define graph ##------------------------------------------------------------------------------------
+# Helper functions for ticket-to-ride optimizer #
+# 
+#
+## define classes ##------------------------------------------------------------------------------------
 class WeightedGraph:
     def __init__(self):
         self.graph={}
@@ -139,11 +104,30 @@ def print_sorted_paths(sorted_paths):
                 formatted_path = f"[{total_weight}] (~){ship_weight}/{train_weight}(=) >> "
 
             for node, _, weight, type, _ in path_info:
-                t = '~~~' if type==2 else '==='
+                t = f'~~{weight}~~' if type==2 else f'=={weight}=='
                 formatted_path += f"{node} {t} "
 
             formatted_path += path_info[-1][1] # add destination city name
             print(formatted_path)
+
+class DestinationTicket:
+    def __init__(self, node1, node2, value):
+        self.ticket = [node1, node2, value]
+
+class DestinationTickets:
+    def __init__(self):
+        self.tickets = {}
+
+    def add_ticket(self, t):
+        # make tuple ID
+        key = (t.ticket[0], t.ticket[1]) # start, end
+        if key not in self.tickets:
+            self.tickets[key] = t.ticket[2] # value
+    
+    def print_tickets(self):
+        for (a,b), value in self.tickets.items():
+            print(f"[0{value}] {a} <-> {b}") if value<10 else print(f"[{value}] {a} <-> {b}")
+
 
 ## dictionary definitions ##
 #TODO: Harbor-ability
@@ -233,22 +217,13 @@ city_gl = {
     'SBM': 'South Baymouth'
 }
 
-type = {
-    1:'land',
-    2:'sea'
-}
+type = {1:'land', 2:'sea'}
 
 colors = {
-    'g':'green',
-    'p':'pink', # heliotrope really
-    'w':'white',
-    'r':'red',
-    'y':'yellow',
-    'b':'black',
-    'any':'any',
-    'db':"double"
+    'g':'green', 'p':'pink', # heliotrope really
+    'w':'white', 'r':'red', 'y':'yellow',
+    'b':'black', 'any':'any', 'db':"double"
 }
-
 
 def initialize_world():
     world = WeightedGraph()
@@ -419,27 +394,6 @@ def initialize_world():
 
     return world
 
-class DestinationTicket:
-    def __init__(self, node1, node2, value):
-        self.ticket = [node1, node2, value]
-
-class DestinationTickets:
-    def __init__(self):
-        self.tickets = {}
-    
-    def add_ticket(self, t):
-
-        # make tuple ID
-        key = (t.ticket[0], t.ticket[1]) # start, end
-
-        if key not in self.tickets:
-            self.tickets[key] = t.ticket[2] # value
-    
-    def print_tickets(self):
-        for (a,b), value in self.tickets.items():
-            print(f"[0{value}] {a} <-> {b}") if value<10 else print(f"[{value}] {a} <-> {b}")
-
-
 def initialize_world_tickets():
     tix = DestinationTickets()
     # <10
@@ -501,3 +455,40 @@ def initialize_world_tickets():
     tix.add_ticket(DestinationTicket('SYD', 'EDI', 25))
 
     return tix
+
+## define iterations ##--------------------------------------------------------------------------------
+def ships(num):
+    ways = []
+
+    if num==1:
+        ways=[[1]]
+        return ways
+    
+    max_twos = num//2 #floor twos
+
+    for i in range(1+max_twos):
+        way=[]
+        if num%2==1:
+            way.append(1)
+        for two in range(i): # add max number of twos
+            way.append(2)
+        for one in range(num-sum(way)):
+            way.append(1)
+        ways.append(way)
+    return ways
+
+def len_ways(ways):
+    len_ways=[]
+    for i in ways:
+        len_ways.append(len(i))
+    return len_ways
+
+def print_iteration(i):
+    ans = ships(i)
+    print(f"{i}:[{len(ans)}]")
+    for j in ans:
+        print(f"-->( {len(j)} )={j}")
+
+def nothing():
+    i=0
+    i+1
