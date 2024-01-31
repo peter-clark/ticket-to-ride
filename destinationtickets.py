@@ -120,24 +120,9 @@ for node, (x, y, z) in pos.items():
     ax.scatter(x, y, z, c='b', marker='x', label=node, sizes=[8])
     ax.text(x, y, z, node, fontsize=8, color='black')
 
-print(world_map_graph.edges(data=True))
 # Draw edges
 double_edges=set()
 for edge in world_map_graph.edges(data=True):
-    """ ax.plot([pos[edge[0]][0], pos[edge[1]][0]],
-            [pos[edge[0]][1], pos[edge[1]][1]],
-            [pos[edge[0]][2], pos[edge[1]][2]], c=edge[2]['color'], alpha=0.7, linewidth=4 if edge[2]['color']=='darkslategray' else 2)
-
-    weight = edge[2]['weight']
-    num_points = 200  # Adjust the number of points for smoother curves
-    t = np.linspace(0, 1, num_points)
-    points = np.array([
-        np.linspace(pos[edge[0]][0], pos[edge[1]][0], num_points),
-        np.linspace(pos[edge[0]][1], pos[edge[1]][1], num_points),
-        np.linspace(pos[edge[0]][2], pos[edge[1]][2], num_points),
-    ]).T
-    curves = Line3DCollection([points], colors=edge[2]['color'], alpha=0.5)
-    ax.add_collection3d(curves)"""
 
     weight = edge[2]['weight']
     num_points = 200
@@ -146,6 +131,8 @@ for edge in world_map_graph.edges(data=True):
     p0 = np.array([pos[edge[0]][0], pos[edge[0]][1], pos[edge[0]][2]])
     p2 = np.array([pos[edge[1]][0], pos[edge[1]][1], pos[edge[1]][2]])
     p1 = (p0 + p2) / 2
+
+    # if there exist two or more edges between two nodes
     if(edge[0],edge[1]) in double_edges or (edge[1],edge[0]) in double_edges:
         # Midpoint as control point with an offset in the x-direction
         offset_amount = np.random.uniform(-0.10,0.10,size=3)  # You can adjust this value
