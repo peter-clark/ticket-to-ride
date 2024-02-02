@@ -140,7 +140,7 @@ type = {1:'land', 2:'sea'}
 
 colors = {# some changed for visibility
     'g':'green', 'p':'mediumvioletred', # heliotrope really
-    'w':'indigo', 'r':'red', 'y':'yellow',
+    'w':'indigo', 'r':'red', 'y':'gold',
     'b':'black', 'any':'sienna', 'db':"darkslategray"
 }
 
@@ -193,7 +193,7 @@ city_w = {
     'WIN': {'name': 'Winnipeg', 'harbor': False, 'can_harbor': False}
 }
 
-tickets_w = [# NA
+connections_w = [# NA
     ('ANC', 'VAN', 4, 1, 'db'),  
     ('VAN', 'LOS', 1, 1, 'g'),
     ('VAN', 'LOS', 1, 1, 'r'),
@@ -336,6 +336,117 @@ tickets_w = [# NA
     ('CHR', 'VAL', 7, 2, 'y'),
     ('HON', 'LOS', 3, 2, 'y')]
 
+connections_gl = [
+    ('DUL', 'THU', 5, 1, 'b'),
+    ('DUL', 'WAU', 4, 1, 'g'),
+    ('DUL', 'EAU', 3, 1, 'y'),
+    ('EAU', 'CDR', 5, 1, 'p'),
+    ('EAU', 'MAD', 4, 1, 'w'),
+    ('EAU', 'WAU', 2, 1, 'any'),
+    ('WAU', 'MRQ', 4, 1, 'w'),
+    ('WAU', 'GBA', 1, 1, 'r'),
+    ('WAU', 'MIL', 4, 1, 'b'),
+    ('WAU', 'MAD', 4, 1, 'p'),
+    ('CDR', 'MAD', 3, 1, 'g'),
+    ('CDR', 'CHI', 4, 1, 'y'),
+    ('CDR', 'CHI', 4, 1, 'r'),
+    ('MAD', 'MIL', 1, 1, 'any'),
+    ('MAD', 'CHI', 3, 1, 'any'),
+    ('CHI', 'SOU', 1, 1, 'any'),
+    ('CHI', 'SOU', 1, 1, 'any'),
+    ('MAR', 'TIM', 5, 1, 'y'),
+    ('TRA', 'BAY', 3, 1, 'r'),
+    ('TRA', 'MUS', 3, 1, 'w'),
+    ('MUS', 'SOU', 3, 1, 'y'),
+    ('SOU', 'DET', 4, 1, 'b'),
+    ('SOU', 'TOL', 3, 1, 'any'),
+    ('SOU', 'TOL', 3, 1, 'p'),
+    ('BAY', 'DET', 2, 1, 'g'),
+    ('DET', 'TOR', 5, 1, 'r'),
+    ('CLE', 'NYC', 9, 1, 'any'),
+    ('TIM', 'ROU', 4, 1, 'g'),
+    ('SUD', 'SBM', 2, 1, 'any'),
+    ('SUD', 'PAR', 2, 1, 'any'),
+    ('SUD', 'TIM', 4, 1, 'w'),
+    ('SUD', 'TIM', 4, 1, 'r'),
+    ('SUD', 'OTT', 7, 1, 'g'),
+    ('SUD', 'OTT', 7, 1, 'b'),
+    ('SUD', 'ROU', 4, 1, 'p'),
+    ('TOR', 'POR', 2, 1, 'w'),
+    ('TOR', 'PAR', 2, 1, 'b'),
+    ('OTT', 'KIN', 2, 1, 'y'),
+    ('OTT', 'ROU', 7, 1, 'r'),
+    ('OTT', 'MON', 1, 1, 'any'),
+    ('OTT', 'MON', 1, 1, 'any'),
+    ('MON', 'ROU', 8, 1, 'any'),
+    ('MON', 'ALB', 5, 1, 'w'),
+    ('MON', 'ALB', 5, 1, 'g'),
+    ('SYR', 'KIN', 2, 1, 'p'),
+    ('SCR', 'SYR', 2, 1, 'w'),
+    ('SCR', 'SYR', 2, 1, 'b'),
+    ('SCR', 'BUF', 4, 1, 'any'),
+    ('SCR', 'ERI', 6, 1, 'y'),
+    ('SCR', 'ERI', 6, 1, 'p'),
+    ('SCR', 'NYC', 1, 1, 'g'),
+    ('SCR', 'NYC', 1, 1, 'r'),
+    ('THU', 'MAR', 3, 2, 'p'),
+    ('THU', 'DUL', 4, 2, 'y'),
+    ('MRQ', 'DUL', 6, 2, 'r'),
+    ('MAR', 'LKS', 2, 2, 'any'),
+    ('LKS', 'THU', 1, 2, 'any'),
+    ('LKS', 'THU', 1, 2, 'any'),
+    ('LKS', 'DUL', 5, 2, 'b'),
+    ('LKS', 'DUL', 5, 2, 'p'),
+    ('LKS', 'MAR', 2, 2, 'w'),
+    ('TRA', 'MUS', 3, 2, 'r'),
+    ('TRA', 'GBA', 3, 2, 'g'),
+    ('MIL', 'MUS', 2, 2, 'any'),
+    ('MIL', 'GBA', 3, 2, 'y'),
+    ('MIL', 'GBA', 3, 2, 'b'),
+    ('CHI', 'MUS', 3, 2, 'p'),
+    ('CHI', 'MIL', 1, 2, 'w'),
+    ('CHI', 'MIL', 1, 2, 'g'),
+    ('SSM', 'LKS', 5, 2, 'r'),
+    ('SSM', 'LKS', 5, 2, 'g'),
+    ('SSM', 'MAR', 4, 2, 'any'),
+    ('SSM', 'GBA', 6, 2, 'any'),
+    ('SSM', 'GBA', 6, 2, 'any'),
+    ('SSM', 'MRQ', 3, 2, 'any'),
+    ('SSM', 'TRA', 3, 2, 'any'),
+    ('LKH', 'SSM', 4, 2, 'w'),
+    ('LKH', 'SSM', 4, 2, 'y'),
+    ('LKH', 'BAY', 2, 2, 'any'),
+    ('LKH', 'DET', 4, 2, 'b'),
+    ('LKH', 'DET', 4, 2, 'g'),
+    ('LKH', 'POR', 1, 2, 'any'),
+    ('LKH', 'SBM', 1, 2, 'any'),
+    ('SBM', 'SSM', 3, 2, 'any'),
+    ('SBM', 'POR', 2, 2, 'any'),
+    ('SBM', 'PAR', 2, 2, 'w'),
+    ('POR', 'PAR', 2, 2, 'y'),
+    ('DET', 'TOL', 1, 2, 'any'),
+    ('DET', 'TOL', 1, 2, 'any'),
+    ('DET', 'CLE', 2, 2, 'y'),
+    ('DET', 'BUF', 6, 2, 'p'),
+    ('DET', 'BUF', 6, 2, 'w'),
+    ('CLE', 'TOL', 2, 2, 'w'),
+    ('CLE', 'TOL', 2, 2, 'r'),
+    ('CLE', 'ERI', 1, 2, 'b'),
+    ('CLE', 'ERI', 1, 2, 'g'),
+    ('KIN', 'MON', 3, 2, 'y'),
+    ('KIN', 'MON', 3, 2, 'g'),
+    ('KIN', 'TOR', 4, 2, 'b'),
+    ('KIN', 'TOR', 4, 2, 'w'),
+    ('BUF', 'TOR', 1, 2, 'any'),
+    ('BUF', 'TOR', 1, 2, 'any'),
+    ('BUF', 'ERI', 2, 2, 'any'),
+    ('BUF', 'SYR', 3, 2, 'y'),
+    ('BUF', 'SYR', 3, 2, 'r'),
+    ('ALB', 'SYR', 2, 2, 'g'),
+    ('ALB', 'SYR', 2, 2, 'p'),
+    ('ALB', 'NYC', 3, 2, 'r'),
+    ('ALB', 'NYC', 3, 2, 'b')
+]
 
 city_gl = {
     'BAY': {'name': 'Bay City', 'harbor': False, 'can_harbor': True},
@@ -376,7 +487,23 @@ city_gl = {
     'LKS': {'name': 'Lake Superior', 'harbor': False, 'can_harbor': False},
     'LKH': {'name': 'Lake Huron', 'harbor': False, 'can_harbor': False}
 }
+fixed_gl = {
+    'DUL':(0,10),
+    'EAU':(0,6), 
+    'CDR':(0,1),
+    'SOU':(6,0),
+    'CHI':(5,0),
+    'TIM':(9,12), 
+    'SSM':(4,6),
+    'WAU':(3,6),  
+    'DET':(9,1),    
+    'NYC':(20,0), 
+    'MON':(20,8),
+    
 
+}
+
+## initialize world ## --------------------------------------------------------------
 def initialize_world():
     world = WeightedGraph()
     #add_edge(node1, node2, weights, type, color)
@@ -609,7 +736,6 @@ def initialize_world_tickets():
     return tix
 
 ## initialize great lakes ## --------------------------------------------------------------
-
 def initialize_gl():
     gl = WeightedGraph()
     #add_edge(node1, node2, weights, type, color)
@@ -677,14 +803,14 @@ def initialize_gl():
         gl.add_edge('SCR', 'ERI', 6, 1, 'y')
         gl.add_edge('SCR', 'ERI', 6, 1, 'p')
         gl.add_edge('SCR', 'NYC', 1, 1, 'g')
-        gl.add_edge('SCR', 'MYC', 1, 1, 'r')
+        gl.add_edge('SCR', 'NYC', 1, 1, 'r')
 
     ## Lake Connections
     if _sea:
         # West (of SSM)
         gl.add_edge('THU', 'MAR', 3, 2, 'p')
         gl.add_edge('THU', 'DUL', 4, 2, 'y')
-        gl.add_edge('MAR', 'DUL', 6, 2, 'r')
+        gl.add_edge('MRQ', 'DUL', 6, 2, 'r')
         gl.add_edge('MAR', 'LKS', 2, 2, 'any')
         gl.add_edge('LKS', 'THU', 1, 2, 'any')
         gl.add_edge('LKS', 'THU', 1, 2, 'any')
@@ -849,23 +975,27 @@ def nothing():
     i=0
     i+1
 
-def bezier_curve(p0, p1, p2, t):
-    return (1 - t)**2 * p0 + 2 * (1 - t) * t * p1 + t**2 * p2
 
-def graph3D(graph, cities, tickets):
+
+## graphing functions ## -----------------------------------------------------
+def bezier_curve(p0, p1, p2, t): # 3D
+    return (1 - t)**2 * p0 + 2 * (1 - t) * t * p1 + t**2 * p2
+def bezier_curve_2d(p0, p1, t):
+    return (1 - t) * p0 + t * p1
+
+
+def graph3D(graph, cities, connections):
     fig = plt.figure()
     ax = fig.add_subplot(111, projection='3d')
-
-
 
     # add cities
     for id, city in cities.items():
         graph.add_node(id, name=city['name'], has_harbor=city['harbor'], can_harbor=city['can_harbor'])
 
     # add routes
-    for edge in functions.tickets_w:
+    for edge in connections:
         city1, city2, weight, _type, color = edge
-        graph.add_edge(city1, city2, weight=weight, _type=_type, color=functions.colors[color])
+        graph.add_edge(city1, city2, weight=weight, _type=_type, color=colors[color])
 
     # get pos from viz
     pos = nx.spring_layout(graph, dim=3, seed=70)
@@ -907,9 +1037,9 @@ def graph3D(graph, cities, tickets):
             double_edges.add((edge[1],edge[0]))   
 
         # Define the Bezier curve for each coordinate
-        x_curve = functions.bezier_curve(p0[0], p1[0], p2[0], t)
-        y_curve = functions.bezier_curve(p0[1], p1[1], p2[1], t)
-        z_curve = functions.bezier_curve(p0[2], p1[2], p2[2], t)
+        x_curve = bezier_curve(p0[0], p1[0], p2[0], t)
+        y_curve = bezier_curve(p0[1], p1[1], p2[1], t)
+        z_curve = bezier_curve(p0[2], p1[2], p2[2], t)
         curves = Line3DCollection([list(zip(x_curve, y_curve, z_curve))], colors=edge[2]['color'], alpha=0.5)    
         ax.add_collection3d(curves)
 
@@ -918,4 +1048,55 @@ def graph3D(graph, cities, tickets):
     ax.yaxis.set_pane_color(mpl.colors.to_rgba(background_color))
     ax.zaxis.set_pane_color(mpl.colors.to_rgba(background_color))
 
+    plt.show()
+
+def graph2D(graph, cities, connections, fixed_nodes):
+    fig = plt.figure()
+    ax = fig.subplots()
+    for id, city in cities.items():
+        graph.add_node(id, name=city['name'], has_harbor=city['harbor'], can_harbor=city['can_harbor'], node_size='')
+
+    # add routes
+    for edge in connections:
+        city1, city2, weight, _type, color = edge
+        graph.add_edge(city1, city2, weight=weight, _type=_type, color=colors[color])
+    for edge in graph.edges:
+        graph.edges[edge]['length']=1/graph.edges[edge]['weight']
+    # get pos from viz
+    pos = nx.spring_layout(graph, pos=fixed_nodes, fixed=fixed_nodes.keys(), iterations=100)
+
+
+    double_edges=set()
+    for edge in graph.edges(data=True):
+
+        weight = edge[2]['weight']
+        num_points = 200
+        t = np.linspace(0, 1, num_points)
+
+        p0 = np.array([pos[edge[0]][0], pos[edge[0]][1]])
+        p2 = np.array([pos[edge[1]][0], pos[edge[1]][1]])
+        p1 = (p0 + p2) / 2
+
+        # if there exist two or more edges between two nodes
+        if(edge[0],edge[1]) in double_edges or (edge[1],edge[0]) in double_edges:
+            # Midpoint as control point with an offset in the x-direction
+            offset_amount = np.random.uniform(-0.30,0.30,size=2)  # You can adjust this value
+            p1 = (p0 + p2) / 2 + np.array(offset_amount)
+        else:
+            double_edges.add((edge[0], edge[1]))
+            double_edges.add((edge[1], edge[0]))
+
+        # Define the Bezier curve for each coordinate
+        x_curve = bezier_curve(p0[0], p1[0], p2[0], t)
+        y_curve = bezier_curve(p0[1], p1[1], p2[1], t)
+
+        curves = mpl.collections.LineCollection([list(zip(x_curve, y_curve))], colors=edge[2]['color'], alpha=0.5, linestyle='solid' if edge[2]['_type']==1 else 'dashed')
+        ax.add_collection(curves)
+    # draw nodes
+    nx.draw_networkx_nodes(graph, pos, node_size=25)
+    """ # draw edges
+    for edge in graph.edges(data=True): # split into a, b, data['x': 'y', ...]
+        nx.draw_networkx_edges(graph, pos, edgelist=[(edge[0],edge[1])], edge_color=edge[2]['color']) """
+
+    nx.draw_networkx_labels(graph, pos)
     plt.show()
