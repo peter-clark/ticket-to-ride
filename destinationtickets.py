@@ -1,6 +1,5 @@
 import os
 import csv
-import numpy
 import heapq
 import networkx as nx
 import functions
@@ -33,6 +32,8 @@ functions.nothing()
 ########################################################################
 ############################    WORLD MAP   ############################
 ########################################################################   
+
+_worldmap = False
 
 ## init ##
 worldmap = functions.initialize_world()
